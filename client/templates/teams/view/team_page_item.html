@@ -4,7 +4,7 @@
       <h3>{{teamName}} <span>[{{teamTag}}]</span></h3>
       <h4>Team Members</h4>
 	  {{#each teamMembers}}
-	  	  {{>teamMemberItem memberId=this.memberId}}
+	  	  {{>teamMemberItem memberId=this.memberId memberRole=this.memberRole}}
 	  {{/each}}
       <p>
         submitted by {{author}}
@@ -12,11 +12,13 @@
       </p>	
     </div>
     {{#if currentUser}}
+    {{#unless isCaptain}}
       {{#if inTeam}}
         <a class="leave btn btn-default">Leave</a>
       {{else}}
         <a class="join btn btn-default">Join</a>
       {{/if}}
+    {{/unless}}
     {{/if}}
   </div>
 </template>

@@ -20,7 +20,10 @@ if (Teams.find().count() === 0) {
 		author: user1.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user1._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 2',
@@ -29,7 +32,10 @@ if (Teams.find().count() === 0) {
 		author: user1.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user1._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 3',
@@ -38,7 +44,10 @@ if (Teams.find().count() === 0) {
 		author: user1.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user1._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 4',
@@ -47,7 +56,10 @@ if (Teams.find().count() === 0) {
 		author: user1.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user1._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 5',
@@ -56,7 +68,10 @@ if (Teams.find().count() === 0) {
 		author: user2.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user2._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 6',
@@ -65,7 +80,10 @@ if (Teams.find().count() === 0) {
 		author: user2.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user2._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 7',
@@ -74,7 +92,10 @@ if (Teams.find().count() === 0) {
 		author: user2.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user2._id,
+      memberRole: 'captain'
+    }]
 	}),
 	Teams.insert({
 		teamName: 'Team 8',
@@ -83,7 +104,10 @@ if (Teams.find().count() === 0) {
 		author: user2.username,
 	 	submitted: new Date(),
 	 	locked: false,
-	 	members: []
+	 	members: [{
+      memberId: user2._id,
+      memberRole: 'captain'
+    }]
 	});
 }
 

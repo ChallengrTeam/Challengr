@@ -6,9 +6,10 @@ Template.teamPageItem.helpers({
   	return this.members;
   },
   inTeam: function() {
-  	console.log(_.contains(this.members, Meteor.userId));
   	return (_.findWhere(this.members, {memberId: Meteor.userId()}));
-
+  },
+  isCaptain: function() {
+  	return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'captain'}));
   }
 });
 
