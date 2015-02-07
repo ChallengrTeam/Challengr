@@ -1,0 +1,18 @@
+<template name="tournamentEdit">
+  <form class="main form">
+    <div class="form-group">
+      <label class="control-label" for="tournamentName">Tournament Name</label>
+      <div class="controls">
+        <input name="tournamentName" id="tournamentName" type="text" value="{{tournamentName}}" placeholder="Your Tournament Name" class="form-control"/>
+      </div>
+    </div>
+  <input type="submit" value="Submit" class="btn btn-primary"/>
+  <hr/>
+  <a class="btn btn-danger delete" href="#">Delete post</a>
+  {{#if isLocked}}
+    <a class="btn btn-danger unlock" href="#">Unlock</a>
+  {{else}}
+    <a class="btn btn-danger lock" href="#">Lock</a>
+  {{/if}}
+  </form>
+</template>

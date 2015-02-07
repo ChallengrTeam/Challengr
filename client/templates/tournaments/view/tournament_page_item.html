@@ -1,0 +1,20 @@
+<template name="tournamentPageItem">
+  <div class="tournament">
+    <div class="tournament-content">
+      <h3>{{tournamentName}}</h3>
+      <h4>Tournament Teams</h4>
+	  {{#each tournamentTeams}}
+	  	  {{>tournamentTeamItem teamId=this.teamId}}
+	  {{/each}}
+      <p>
+        submitted by {{author}}
+        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit</a>{{/if}}
+      </p>	
+    </div>
+    {{#if currentUser}}
+      {{#unless isLocked}}
+        <a href="{{pathFor 'tournamentJoinList'}}" class="join btn btn-default">Join</a>
+      {{/unless}}
+    {{/if}}
+  </div>
+</template>

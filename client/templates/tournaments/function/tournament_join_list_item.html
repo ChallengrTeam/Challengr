@@ -1,0 +1,14 @@
+<template name="tournamentJoinListItem">
+  <div class="team">
+    <div class="team-content">
+      <h3>{{team.teamName}} <span>[{{team.teamTag}}]</span></h3>
+    </div>
+    {{#if currentUser}}
+      {{#if inTournament}}
+        <a class="leave btn btn-default">Leave</a>
+      {{else}}
+        <a class="join btn btn-default">Join</a>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>

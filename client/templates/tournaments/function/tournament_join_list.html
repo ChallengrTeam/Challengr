@@ -1,0 +1,7 @@
+<template name="tournamentJoinList">
+  <div class="teams">
+	 {{#each teams}}
+	   {{>tournamentJoinListItem teamId=this._id tournamentId=../_id}}
+	 {{/each}}
+  </div>
+</template>

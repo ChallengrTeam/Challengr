@@ -1,0 +1,22 @@
+<template name="teamPageItem">
+  <div class="team">
+    <div class="team-content">
+      <h3>{{teamName}} <span>[{{teamTag}}]</span></h3>
+      <h4>Team Members</h4>
+	  {{#each teamMembers}}
+	  	  {{>teamMemberItem memberId=this}}
+	  {{/each}}
+      <p>
+        submitted by {{author}}
+        {{#if ownPost}}<a href="{{pathFor 'teamEdit'}}">Edit</a>{{/if}}
+      </p>	
+    </div>
+    {{#if currentUser}}
+      {{#if inTeam}}
+        <a class="leave btn btn-default">Leave</a>
+      {{else}}
+        <a class="join btn btn-default">Join</a>
+      {{/if}}
+    {{/if}}
+  </div>
+</template>

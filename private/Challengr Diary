@@ -1,0 +1,28 @@
+Challengr Diary
+
+Tuesday 3rd February
+
+My first post.
+
+Today I will be attempting to implement modal windows.
+Also hope to figure out how to render access denied if id's don't match.
+
+Hook to prevent users from accessing routes:
+
+onBeforeAction: function() {
+    var doc = [collection].findOne(this.params._id);
+    if (! ownsDocument(Meteor.userId(), doc)) {
+      this.render('accessDenied');
+    } else {
+      this.next();
+    }
+  }
+
+
+4th Feb:
+
+Added ability to add teams into tournaments
+Added server-side authentication for update and insert of teams and tournaments.
+
+Trying to figure out how to prevent spoofing from allowing people to access restricted routes.
+
