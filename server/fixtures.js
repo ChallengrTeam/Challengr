@@ -19,6 +19,7 @@ if (Teams.find().count() === 0) {
 		userId: user1._id,
 		author: user1.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -27,6 +28,7 @@ if (Teams.find().count() === 0) {
 		userId: user1._id,
 		author: user1.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -35,6 +37,7 @@ if (Teams.find().count() === 0) {
 		userId: user1._id,
 		author: user1.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -43,6 +46,7 @@ if (Teams.find().count() === 0) {
 		userId: user1._id,
 		author: user1.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -51,6 +55,7 @@ if (Teams.find().count() === 0) {
 		userId: user2._id,
 		author: user2.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -59,6 +64,7 @@ if (Teams.find().count() === 0) {
 		userId: user2._id,
 		author: user2.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -67,6 +73,7 @@ if (Teams.find().count() === 0) {
 		userId: user2._id,
 		author: user2.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	}),
 	Teams.insert({
@@ -75,6 +82,7 @@ if (Teams.find().count() === 0) {
 		userId: user2._id,
 		author: user2.username,
 	 	submitted: new Date(),
+	 	locked: false,
 	 	members: []
 	});
 }

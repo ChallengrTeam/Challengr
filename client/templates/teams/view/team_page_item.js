@@ -7,7 +7,7 @@ Template.teamPageItem.helpers({
   },
   inTeam: function() {
   	console.log(_.contains(this.members, Meteor.userId));
-  	return (_.contains(this.members, Meteor.userId()));
+  	return (_.findWhere(this.members, {memberId: Meteor.userId()}));
 
   }
 });
