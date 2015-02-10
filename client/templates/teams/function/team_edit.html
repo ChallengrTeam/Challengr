@@ -15,5 +15,10 @@
   <input type="submit" value="Submit" class="btn btn-primary"/>
   <hr/>
   <a class="btn btn-danger delete" href="#">Delete post</a>
+  {{#if isLocked}}
+    <a class="btn btn-danger unlock" href="#">Unlock</a>
+  {{else}}
+    <a class="btn btn-danger lock" href="#">Lock</a>
+  {{/if}}
   </form>
 </template>
