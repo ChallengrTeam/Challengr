@@ -13,11 +13,13 @@
       </div>
       <div>
     	  <ul class="nav navbar-nav">
-          {{#if currentUser}}<li><a href="{{pathFor 'teamsCaptainList'}}">My Teams</a></li>{{/if}}
-          {{#if currentUser}}<li><a href="{{pathFor 'teamsList'}}">List Teams</a></li>{{/if}}
-          {{#if currentUser}}<li><a href="{{pathFor 'teamCreate'}}">Create Team</a></li>{{/if}}
-          {{#if currentUser}}<li><a href="{{pathFor 'tournamentsList'}}">List Tournaments</a></li>{{/if}}
-          {{#if currentUser}}<li><a href="{{pathFor 'tournamentCreate'}}">Create Tournament</a></li >{{/if}}
+          {{#if currentUser}}
+            <li><a href="{{pathFor 'teamsCaptainList'}}">My Teams</a></li>
+            <li><a href="{{pathFor 'teamsList'}}">List Teams</a></li>
+            <li><a href="{{pathFor 'teamCreate'}}">Create Team</a></li>
+            <li><a href="{{pathFor 'tournamentsList'}}">List Tournaments</a></li>
+            <li><a href="{{pathFor 'tournamentCreate'}}">Create Tournament</a></li >
+          {{/if}}
         </ul>
     	  <ul class="nav navbar-nav navbar-right">
     		  {{> loginButtons}}
