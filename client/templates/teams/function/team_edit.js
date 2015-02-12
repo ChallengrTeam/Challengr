@@ -26,5 +26,32 @@ Template.teamEdit.events({
  			Teams.remove(currentTeamId);
  			Router.go('teamsList');
  		}
- 	}
+ 	},
+
+ 	'click .lock': function(e) {
+ 		e.preventDefault();
+ 		if (confirm("Lock this team?")) {
+ 			Meteor.call('teamLock', function(error, result) {
+		  // display the error to the user and abort
+			  if (error)
+			  	return alert(error.reason);
+			  
+			  Router.go('teamPage', {_id: result._id});
+	 		});
+	 	} 
+	},
+
+
+ 	'click .unlock': function(e) {
+ 		e.preventDefault();
+ 		if (confirm("Unlock this team?")) {
+ 			Meteor.call('teamUnlock', function(error, result) {
+		  // display the error to the user and abort
+			  if (error)
+			  	return alert(error.reason);
+			  
+			  Router.go('teamPage', {_id: result._id});
+	 		});
+	 	} 
+	}
 });
