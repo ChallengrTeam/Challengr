@@ -6,23 +6,28 @@ Template.tournamentEdit.helpers({
 
 
 Template.tournamentEdit.events({
-  'submit form': function(e) {
-    e.preventDefault();
+  	'submit form': function(e) {
+    	e.preventDefault();
  		var currentTournamentId = this._id;
- 		var tournamentProperties = {
- 	  	tournamentName: $(e.target).find('[name=tournamentName]').val()
- 		}
- 		Meteor.call('tournamentEdit', currentTournamentId, tournamentProperties, function(error, result) {
-	  // display the error to the user and abort
-	  if (error)
-	  	return alert(error.reason);
+ 		var newName = $(e.target).find('[name=tournamentName]').val();
+ 		var tournament = Tournaments.findOne({_id: currentTournamentId});
 
-	  // show this result but route anyway
- 		if (result.tournamentExists)
- 			alert('This tournament name already exists');
-	  
-	  Router.go('tournamentPage', {_id: result._id});
-	  });
+ 		var tournamentProperties = {
+ 	  		//tournamentName: tournament.val()
+ 	  		tournamentName: newName,
+ 	  		game: tournament.game,
+ 	  		mode: tournament.mode
+ 		};
+
+ 		Meteor.call('tournamentEdit', currentTournamentId, tournamentProperties,
+ 			function(error, result) {
+			  	// display the error to the user and abort
+			  	if (error) return alert(error.reason);
+
+				// show this result but route anyway
+		 		if (result.tournamentExists) alert('This tournament name already exists');
+				Router.go('tournamentPage', {_id: result._id});
+	  	});
 	},
 
 	'click .delete': function(e) {
@@ -42,7 +47,7 @@ Template.tournamentEdit.events({
 		  // display the error to the user and abort
 			  if (error)
 			  	return alert(error.reason);
-			  
+
 			  Router.go('tournamentPage', {_id: result._id});
 	 		});
 	 	} 

@@ -2,14 +2,14 @@
   <div class="tournament">
     <div class="tournament-content">
       <h3>{{tournamentName}}</h3>
-      <h4>Tournament Teams</h4>
-	  {{#each tournamentTeams}}
-	  	  {{>tournamentTeamItem teamId=this.teamId}}
-	  {{/each}}
       <p>
-        submitted by {{author}}
-        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit</a>{{/if}}
-      </p>	
+        Hosted by {{author}}
+        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a>{{/if}}
+      </p>
+      <h4>Tournament Teams</h4>
+    	  {{#each tournamentTeams}}
+    	  	  {{>tournamentTeamItem teamId=this.teamId}}
+    	  {{/each}}
     </div>
     {{#if currentUser}}
       {{#unless isLocked}}
