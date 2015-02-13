@@ -114,6 +114,8 @@ if (Teams.find().count() === 0) {
 if (Tournaments.find().count() === 0) {
 	Tournaments.insert({
 		tournamentName: 'Tournament 1',
+		game: 'League of Legends',
+		mode: '5v5 Summoner\'s Rift',
 		userId: user1._id,
 		author: user1.username,
 	 	submitted: new Date(),

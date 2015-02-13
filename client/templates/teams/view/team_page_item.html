@@ -9,15 +9,22 @@
       <p>
         submitted by {{author}}
         {{#if ownPost}}<a href="{{pathFor 'teamEdit'}}">Edit</a>{{/if}}
+        {{#if ownPost}}<a href="{{pathFor 'teamPendingList'}}">View Applications</a>{{/if}}
       </p>	
     </div>
     {{#if currentUser}}
     {{#unless isCaptain}}
+    {{#unless isLocked}}
       {{#if inTeam}}
         <a class="leave btn btn-default">Leave</a>
       {{else}}
-        <a class="join btn btn-default">Join</a>
+        {{#if inPending}}
+          <a class="rescind btn btn-default">Rescind</a>
+        {{else}}
+          <a class="join btn btn-default">Apply</a>
+        {{/if}}
       {{/if}}
+    {{/unless}}
     {{/unless}}
     {{/if}}
   </div>
