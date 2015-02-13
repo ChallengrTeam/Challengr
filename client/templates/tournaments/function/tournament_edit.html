@@ -6,13 +6,32 @@
         <input name="tournamentName" id="tournamentName" type="text" value="{{tournamentName}}" placeholder="Your Tournament Name" class="form-control"/>
       </div>
     </div>
-  <input type="submit" value="Submit" class="btn btn-primary"/>
+
   <hr/>
+  Format: 
+  <select id="FormatSelect">
+    {{#each tournamentFormats}}
+      {{> tournamentFormat}}
+    {{/each}}
+  </select>
+  <a class="btn btn-default bracket-create" href="#">Create Brackets</a>
+
+  <hr/>
+  <input type="submit" value="Submit Changes" class="btn btn-primary"/>
   <a class="btn btn-danger delete" href="#">Delete post</a>
   {{#if isLocked}}
     <a class="btn btn-danger unlock" href="#">Unlock</a>
   {{else}}
     <a class="btn btn-danger lock" href="#">Lock</a>
   {{/if}}
+
   </form>
+</template>
+
+<template name="tournamentFormat">
+    {{#if isFormatCurrent}}
+        <option selected>{{name}}</option>
+    {{else}}
+        <option>{{name}}</option>
+    {{/if}}
 </template>

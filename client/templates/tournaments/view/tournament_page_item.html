@@ -6,6 +6,14 @@
         Hosted by {{author}}
         {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a>{{/if}}
       </p>
+      <p>
+        Format: 
+        {{#if this.format}}
+            {{this.format}}
+        {{else}}
+            None
+        {{/if}}
+      </p>
       <h4>Tournament Teams</h4>
     	  {{#each tournamentTeams}}
     	  	  {{>tournamentTeamItem teamId=this.teamId}}
