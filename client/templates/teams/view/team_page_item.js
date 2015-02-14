@@ -15,6 +15,7 @@ Template.teamPageItem.helpers({
     return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'pending'}));
   },
   isCaptain: function() {
+    //console.log(_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'captain'}));
     return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'captain'}));
   }
 });

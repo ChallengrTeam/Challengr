@@ -1,6 +1,9 @@
 Template.teamMemberItem.helpers({
   member: function() {
   	return Meteor.users.findOne( { _id: this.memberId } );
+  },
+  isCaptain: function() {
+    return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'captain'}));
   }
 });
 

@@ -4,7 +4,7 @@
       <h3>{{teamName}} <span>[{{teamTag}}]</span></h3>
       <h4>Team Members</h4>
 	  {{#each teamMembers}}
-	  	  {{>teamMemberItem memberId=this.memberId memberRole=this.memberRole teamId=../_id}}
+	  	  {{>teamMemberItem memberId=this.memberId memberRole=this.memberRole teamId=../_id members=../members}}
 	  {{/each}}
       <p>
         submitted by {{author}}

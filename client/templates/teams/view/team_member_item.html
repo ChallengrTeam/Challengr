@@ -3,6 +3,8 @@
   <div class="team-content">
     {{member.username}}<span>[{{this.memberRole}}]</span>
   </div>
-   <a class="remove btn btn-default">Remove</a>
+  {{#if isCaptain}}
+  <a class="remove btn btn-default">Remove</a>
+  {{/if}}
 </div>
 </template>
