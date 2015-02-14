@@ -10,7 +10,11 @@ Template.tournamentEdit.events({
     e.preventDefault();
  		var currentTournamentId = this._id;
  		var tournamentProperties = {
- 	  	tournamentName: $(e.target).find('[name=tournamentName]').val()
+ 	  		tournamentName: $(e.target).find('[name=tournamentName]').val(),
+        	//this line is wrong, how do I get the date?
+        	// tournamentDate: $(e.target).find('[name=tournamentDate]').val(),
+        	game: $(e.target).find('[name=game]').val(),
+        	mode: $(e.target).find('[name=mode]').val()
  		}
  		Meteor.call('tournamentEdit', currentTournamentId, tournamentProperties, function(error, result) {
 	  // display the error to the user and abort
