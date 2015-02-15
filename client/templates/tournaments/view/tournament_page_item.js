@@ -13,6 +13,10 @@ Template.tournamentPageItem.helpers({
 Template.tournamentBracket.helpers({
   bracketRounds: function() {
     return this.rounds || [];
+  },
+  getTeamName: function (teamId) {
+    var team = Teams.findOne({_id: teamId});
+    return team ? team.teamName : "TBD";
   }
 });
 

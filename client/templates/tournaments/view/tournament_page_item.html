@@ -7,19 +7,11 @@
     {{#each value.matches}}
     <tr>
       <td>
-      {{#if team0}}
-        {{team0}}
-      {{else}}
-        TBD
-      {{/if}}
+      {{getTeamName this.team0}}
       </td>
       <td>vs.</td>
       <td>
-      {{#if team1}}
-        {{team1}}
-      {{else}}
-        TBD
-      {{/if}}
+      {{getTeamName this.team1}}
       </td>
       <td>
       {{#if result}}
