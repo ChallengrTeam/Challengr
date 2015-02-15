@@ -1,3 +1,39 @@
+<template name="tournamentBracket">
+  {{#each getArrayIndexes bracketRounds}}
+  <table>
+    <tr>
+      <th colspan="4">Round {{index}}</th>
+    </tr>
+    {{#each value.matches}}
+    <tr>
+      <td>
+      {{#if team0}}
+        {{team0}}
+      {{else}}
+        TBD
+      {{/if}}
+      </td>
+      <td>vs.</td>
+      <td>
+      {{#if team1}}
+        {{team1}}
+      {{else}}
+        TBD
+      {{/if}}
+      </td>
+      <td>
+      {{#if result}}
+        {{result}}
+      {{else}}
+        0:0
+      {{/if}}
+      </td>
+     </tr>
+     {{/each}}
+  </table>
+  {{/each}}
+</template>
+
 <template name="tournamentPageItem">
   <div class="tournament">
     <div class="tournament-content">
@@ -14,10 +50,15 @@
             None
         {{/if}}
       </p>
+
       <h4>Tournament Teams</h4>
-    	  {{#each tournamentTeams}}
-    	  	  {{>tournamentTeamItem teamId=this.teamId}}
-    	  {{/each}}
+      {{#each tournamentTeams}}
+     	  {{>tournamentTeamItem teamId=this.teamId}}
+      {{/each}}
+
+      <h4>Brackets</h4>
+      {{>tournamentBracket}}
+
     </div>
     {{#if currentUser}}
       {{#unless isLocked}}

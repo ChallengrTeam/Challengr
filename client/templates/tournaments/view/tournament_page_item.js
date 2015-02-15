@@ -7,6 +7,12 @@ Template.tournamentPageItem.helpers({
   },
   isLocked: function() {
   	return this.locked;
+  },
+});
+
+Template.tournamentBracket.helpers({
+  bracketRounds: function() {
+    return this.rounds || [];
   }
 });
 
