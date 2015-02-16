@@ -7,6 +7,14 @@ if ( Meteor.users.find().count() === 0 ) {
         username: 'tester2',
         password: 'tester2'
     });
+    Accounts.createUser({
+        username: 'tester3',
+        password: 'tester3'
+    });
+    Accounts.createUser({
+        username: 'tester4',
+        password: 'tester4'
+    });
 }
 
 	var user1 = Meteor.users.findOne({ username: 'tester1' });

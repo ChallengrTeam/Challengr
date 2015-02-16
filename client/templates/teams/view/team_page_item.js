@@ -11,8 +11,11 @@ Template.teamPageItem.helpers({
   inTeam: function() {
     return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'member'}));
   },
+  // inPending: function() {
+  //   return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'pending'}));
+  // },
   inPending: function() {
-    return (_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'pending'}));
+    return Invites.findOne({type: 'teamapplication', from: Meteor.userId(), to: this._id});
   },
   isCaptain: function() {
     //console.log(_.findWhere(this.members, {memberId: Meteor.userId(), memberRole: 'captain'}));
@@ -21,7 +24,7 @@ Template.teamPageItem.helpers({
 });
 
 Template.teamPageItem.events({
-  'click .join': function(e) {
+  'click .apply': function(e) {
     e.preventDefault();
     var currentTeamId = this._id;
     Meteor.call('teamApply', currentTeamId, function(error, result) {
@@ -33,6 +36,7 @@ Template.teamPageItem.events({
       
     });
   },
+
   'click .rescind': function(e) {
     e.preventDefault();
     var currentTeamId = this._id;
