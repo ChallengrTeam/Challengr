@@ -30,6 +30,15 @@ Template.tournamentEdit.events({
         );
     },
 
+    'click .bracket-clear': function(event, template) {
+        Meteor.call('tournamentClearBracket', this._id,
+            function(error, result) {
+                alert(error ? error.reason : "Bracket cleared!");
+                Router.go('tournamentPage', {_id: result._id});
+            }
+        );
+    },
+
   	'submit form': function(e) {
     	e.preventDefault();
  		var currentTournamentId = this._id;
