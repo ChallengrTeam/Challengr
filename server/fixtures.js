@@ -7,14 +7,6 @@ if ( Meteor.users.find().count() === 0 ) {
             password: 'test'
         });
     });
-    Accounts.createUser({
-        username: 'tester3',
-        password: 'tester3'
-    });
-    Accounts.createUser({
-        username: 'tester4',
-        password: 'tester4'
-    });
 }
 
 var users = _.map(usernames, function (username) {

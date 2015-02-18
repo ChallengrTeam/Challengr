@@ -1,0 +1,7 @@
+<template name="userTeamInviteList">
+  <div class="teams">
+	  {{#each invitations}}
+	   	{{> userTeamInviteItem pendingMemberId=this.to teamId=this.from}}
+	  {{/each}}
+  </div>
+</template>
