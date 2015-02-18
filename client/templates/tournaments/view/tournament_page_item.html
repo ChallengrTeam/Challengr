@@ -1,3 +1,31 @@
+<template name="tournamentBracket">
+  {{#each getArrayIndexes bracketRounds}}
+  <table>
+    <tr>
+      <th colspan="4">Round {{index}}</th>
+    </tr>
+    {{#each value.matches}}
+    <tr>
+      <td>
+      {{getTeamName this.team0}}
+      </td>
+      <td>vs.</td>
+      <td>
+      {{getTeamName this.team1}}
+      </td>
+      <td>
+      {{#if result}}
+        {{result}}
+      {{else}}
+        0:0
+      {{/if}}
+      </td>
+     </tr>
+     {{/each}}
+  </table>
+  {{/each}}
+</template>
+
 <template name="tournamentPageItem">
   <div class="tournament">
     <div class="tournament-content">
@@ -6,10 +34,23 @@
         Hosted by {{author}}
         {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a>{{/if}}
       </p>
+      <p>
+        Format: 
+        {{#if this.format}}
+            {{this.format}}
+        {{else}}
+            None
+        {{/if}}
+      </p>
+
       <h4>Tournament Teams</h4>
-    	  {{#each tournamentTeams}}
-    	  	  {{>tournamentTeamItem teamId=this.teamId}}
-    	  {{/each}}
+      {{#each tournamentTeams}}
+     	  {{>tournamentTeamItem teamId=this.teamId}}
+      {{/each}}
+
+      <h4>Brackets</h4>
+      {{>tournamentBracket}}
+
     </div>
     {{#if currentUser}}
       {{#unless isLocked}}

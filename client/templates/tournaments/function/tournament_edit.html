@@ -1,18 +1,44 @@
 <template name="tournamentEdit">
   <form class="main form">
+
+    <!-- Tournament Name -->
     <div class="form-group">
       <label class="control-label" for="tournamentName">Tournament Name</label>
       <div class="controls">
         <input name="tournamentName" id="tournamentName" type="text" value="{{tournamentName}}" placeholder="Your Tournament Name" class="form-control"/>
       </div>
     </div>
-  <input type="submit" value="Submit" class="btn btn-primary"/>
-  <hr/>
-  <a class="btn btn-danger delete" href="#">Delete post</a>
-  {{#if isLocked}}
-    <a class="btn btn-danger unlock" href="#">Unlock</a>
-  {{else}}
-    <a class="btn btn-danger lock" href="#">Lock</a>
-  {{/if}}
+
+    <hr/>
+
+    <!-- Tournament Format -->
+    Format: 
+    <select id="FormatSelect">
+      {{#each tournamentFormats}}
+        {{> tournamentFormat}}
+      {{/each}}
+    </select>
+    <a class="btn btn-default bracket-create" href="#">Save Format/Create Brackets</a>
+    <a class="btn btn-default bracket-clear" href="#">Clear Current Bracket</a>
+
+    <hr/>
+
+    <!-- Controls -->
+    <input type="submit" value="Submit Changes" class="btn btn-primary"/>
+    <a class="btn btn-danger delete" href="#">Delete post</a>
+    {{#if isLocked}}
+      <a class="btn btn-danger unlock" href="#">Unlock</a>
+    {{else}}
+      <a class="btn btn-danger lock" href="#">Lock</a>
+    {{/if}}
+
   </form>
+</template>
+
+<template name="tournamentFormat">
+    {{#if isFormatCurrent}}
+        <option selected>{{name}}</option>
+    {{else}}
+        <option>{{name}}</option>
+    {{/if}}
 </template>
