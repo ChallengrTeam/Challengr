@@ -1,0 +1,5 @@
+<template name="teamPendingList">
+	  {{#each pending}}
+	  	 {{> teamPendingItem pendingMemberId=this.from teamId=../_id}}
+	  {{/each}}
+</template>

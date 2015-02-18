@@ -1,0 +1,10 @@
+<template name="teamInviteItem">
+  <div class="team">
+    <div class="team-content">
+      {{member.username}}
+    </div>
+      {{#unless alreadyInvited}}
+        <a class="invite btn btn-default">Invite</a>
+      {{/unless}}
+  </div>
+</template>

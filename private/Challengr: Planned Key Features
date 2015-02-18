@@ -1,0 +1,47 @@
+Challengr: Planned Key Features
+
+Teams Module:
+
+Users should be able to create a team.
+
+Team Captains should have control over who is in the team.
+	- Users may apply/rescind applications to teams
+	- Team Captains may accept/reject applications
+	- Team Captains may remove members
+	- Team captains may invite members
+
+Team Captains will be responsible for interactions with tournaments
+	- Joining
+	- Leaving
+	- Checking in before a tournament begins
+	- Liasing with the administrator
+		+ Reporting scores if need be
+
+Teams should have a profile page
+	- Social Media etc will be updated later
+	- Basic Stats Tracking of previous tournaments
+
+
+
+Tournament Module:
+
+Users should be able to browse availible tournaments.
+
+Tournament Admins should be able to create a tournament.
+
+Tournament Admins should be able to set a date for the tournament.
+
+Tournament Admins should be able to select a single elimination bracketing system.
+
+Tournament Admins should be able to select a double elimination bracketing system.
+
+Team Captains should be able to join/leave a tournament before the start of a tournament
+
+Team Captains should be able to select their starting roster and any substitue players before the start of a tournament
+
+Tournaments should have check-in prior to the start of a tournament [1 hour]
+to ascertain which teams are present and available to play
+
+
+
+
