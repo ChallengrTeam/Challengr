@@ -32,13 +32,16 @@
       <h3>{{tournamentName}}</h3>
       <p>
         Hosted by {{author}}<br>
+        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a><br>{{/if}}
         Start Date: 
         {{#if this.startDate}}
-            {{this.startDate}}
+            {{formattedDate this.startDate}}
         {{else}}
             TBA
         {{/if}}
-        {{#if ownPost}}<br><a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a>{{/if}}
+        <br>
+        Game: {{game}}<br>
+        Mode: {{mode}}<br>
       </p>
       <p>
         Format: 

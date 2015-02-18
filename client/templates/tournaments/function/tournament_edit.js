@@ -1,5 +1,8 @@
 Template.tournamentEdit.rendered = function() {
     $('.datetimepicker').datetimepicker();
+    var currentDate = Template.currentData().startDate;
+    if (currentDate)
+        $('.datetimepicker').data('DateTimePicker').date(currentDate);
 };
 
 Template.tournamentEdit.helpers({
@@ -48,10 +51,12 @@ Template.tournamentEdit.events({
 
  		var tournamentProperties = {
  	  		tournamentName: newName,
- 	  		game: $('#game').text(),
- 	  		mode: $('#mode').text(),
-            startDate: $('.datetimepicker').text()
+ 	  		game: $('#game').val(),
+ 	  		mode: $('#mode').val()
  		};
+
+        var newStartDate = $('.datetimepicker').data('DateTimePicker').date().toString();
+        if (newStartDate) tournamentProperties.startDate = newStartDate;
 
  		Meteor.call('tournamentEdit', currentTournamentId, tournamentProperties,
  			function(error, result) {
