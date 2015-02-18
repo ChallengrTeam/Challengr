@@ -1,5 +1,10 @@
 <template name="teamMemberItem">
-  <div>
+<div class="team">
+  <div class="team-content">
     {{member.username}}<span>[{{this.memberRole}}]</span>
   </div>
+  {{#if isCaptain}}
+  <a class="remove btn btn-default">Remove</a>
+  {{/if}}
+</div>
 </template>

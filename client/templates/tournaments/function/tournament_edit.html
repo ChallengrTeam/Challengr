@@ -1,11 +1,25 @@
 <template name="tournamentEdit">
   <form class="main form">
 
-    <!-- Tournament Name -->
+    <!-- Tournament Name, Game, Mode -->
     <div class="form-group">
       <label class="control-label" for="tournamentName">Tournament Name</label>
       <div class="controls">
         <input name="tournamentName" id="tournamentName" type="text" value="{{tournamentName}}" placeholder="Your Tournament Name" class="form-control"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="game">Game</label>
+      <div class="controls">
+        <input name="game" id="game" type="text" value="{{game}}" placeholder="League of Legends Etc." class="form-control"/>
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label class="control-label" for="mode">Mode</label>
+      <div class="controls">
+        <input name="mode" id="mode" type="text" value="{{mode}}" placeholder="eg. Summoners Rift 5v5" class="form-control"/>
       </div>
     </div>
 

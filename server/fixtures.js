@@ -7,6 +7,14 @@ if ( Meteor.users.find().count() === 0 ) {
             password: 'test'
         });
     });
+    Accounts.createUser({
+        username: 'tester3',
+        password: 'tester3'
+    });
+    Accounts.createUser({
+        username: 'tester4',
+        password: 'tester4'
+    });
 }
 
 var users = _.map(usernames, function (username) {
@@ -39,9 +47,9 @@ var teams = _.map(teamNames, function (teamName) {
 
 if (Tournaments.find().count() === 0) {
 	Tournaments.insert({
-		tournamentName: 'Tournament Awesome',
-        game: "Awesome Game",
-        mode: "Awesome Mode",
+		tournamentName: 'Tournament 1',
+        game: 'League of Legends',
+        mode: '5v5 Summoner\'s Rift',
 		userId: users[0]._id,
 		author: users[0].username,
 	 	submitted: new Date(),

@@ -14,6 +14,9 @@ Meteor.publish('mytournaments', function() {
   return Tournaments.find({ userId: this.userId });
 });
 
+Meteor.publish('invites', function() {
+  return Invites.find();
+});
 
 Meteor.publish("allUserData", function () {
     return Meteor.users.find({},

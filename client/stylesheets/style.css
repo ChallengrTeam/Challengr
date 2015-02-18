@@ -72,7 +72,7 @@ body {
         color: #aaaaaa; }
     .team .team-content p {
       margin: 0; }
-  .team .discuss, .join, .leave {
+  .team .discuss, .join, .apply, .approve, .remove, .reject, .leave, .rescind {
     display: block;
     float: right;
     margin-top: 7px; }

@@ -1,3 +1,9 @@
+Template.teamEdit.helpers({
+  isLocked: function() {
+  	return this.locked;
+  }
+});
+
 Template.teamEdit.events({
   'submit form': function(e) {
     e.preventDefault();
@@ -30,8 +36,9 @@ Template.teamEdit.events({
 
  	'click .lock': function(e) {
  		e.preventDefault();
+ 		var currentTeamId = this._id;
  		if (confirm("Lock this team?")) {
- 			Meteor.call('teamLock', function(error, result) {
+ 			Meteor.call('teamLock', currentTeamId, function(error, result) {
 		  // display the error to the user and abort
 			  if (error)
 			  	return alert(error.reason);
@@ -44,8 +51,9 @@ Template.teamEdit.events({
 
  	'click .unlock': function(e) {
  		e.preventDefault();
+ 		var currentTeamId = this._id;
  		if (confirm("Unlock this team?")) {
- 			Meteor.call('teamUnlock', function(error, result) {
+ 			Meteor.call('teamUnlock', currentTeamId, function(error, result) {
 		  // display the error to the user and abort
 			  if (error)
 			  	return alert(error.reason);
