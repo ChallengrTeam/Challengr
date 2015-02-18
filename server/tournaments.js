@@ -2,9 +2,9 @@ Meteor.methods({
     tournamentCreateBracket: function(tournamentId, format) {
         if (format === "None") {
             Tournaments.update(tournamentId, {
-            $set: {format: format}
+                $set: {format: format}
             });
-        } else if (format === "SingleElim") {
+        } else if (format === "Single Elimination") {
             var tournament = Tournaments.findOne({_id: tournamentId});
             var tournamentTeams = tournament.teams;
             var numTeams = tournamentTeams.length;

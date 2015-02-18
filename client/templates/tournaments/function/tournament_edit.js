@@ -1,5 +1,8 @@
-Template.tournamentEdit.helpers({
+Template.tournamentEdit.rendered = function() {
+    $('.datetimepicker').datetimepicker();
+};
 
+Template.tournamentEdit.helpers({
   isLocked: function() {
   	return this.locked;
   },
@@ -10,7 +13,6 @@ Template.tournamentEdit.helpers({
         {name: "Single Elimination", current: this.format}
     ];
   },
-
 });
 
 Template.tournamentFormat.helpers({
@@ -18,7 +20,6 @@ Template.tournamentFormat.helpers({
         return this.name == this.current;
     }
 });
-
 
 Template.tournamentEdit.events({
     'click .bracket-create': function(event, template) {
@@ -46,10 +47,10 @@ Template.tournamentEdit.events({
  		var tournament = Tournaments.findOne({_id: currentTournamentId});
 
  		var tournamentProperties = {
- 	  		//tournamentName: tournament.val()
  	  		tournamentName: newName,
- 	  		game: tournament.game,
- 	  		mode: tournament.mode
+ 	  		game: $('#game').text(),
+ 	  		mode: $('#mode').text(),
+            startDate: $('.datetimepicker').text()
  		};
 
  		Meteor.call('tournamentEdit', currentTournamentId, tournamentProperties,
