@@ -1,23 +1,34 @@
 <template name="tournamentCreate">
   <form class="main form">
+
     <div class="form-group">
       <label class="control-label" for="tournamentName">Tournament Name</label>
       <div class="controls">
         <input name="tournamentName" id="tournamentName" type="text" value="" placeholder="Your Tournament Name" class="form-control"/>
       </div>
     </div>
+
     <div class="form-group">
       <label class="control-label" for="game">Game</label>
       <div class="controls">
         <input name="game" id="game" type="text" value="" placeholder="League of Legends Etc." class="form-control"/>
       </div>
     </div>
+
     <div class="form-group">
       <label class="control-label" for="mode">Mode</label>
       <div class="controls">
         <input name="mode" id="mode" type="text" value="" placeholder="eg. Summoners Rift 5v5" class="form-control"/>
       </div>
     </div>
+
+    <!-- Tournament Start Date -->
+    <label class="control-label" for="datetimepicker">Start Date</label>
+    <div class="input-group datetimepicker">
+        <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+        <input class="set-due-date form-control" type="text" placeholder="Leave blank if undecided."/>
+    </div><hr/>
+
   <input type="submit" value="Create" class="btn btn-primary"/>
   </form>
 </template>

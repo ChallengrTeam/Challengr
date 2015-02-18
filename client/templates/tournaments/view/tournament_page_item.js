@@ -8,6 +8,9 @@ Template.tournamentPageItem.helpers({
   isLocked: function() {
   	return this.locked;
   },
+  formattedDate: function(date) {
+    return date.toLocaleString();
+  }
 });
 
 Template.tournamentBracket.helpers({

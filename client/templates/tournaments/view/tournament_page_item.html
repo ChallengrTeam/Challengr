@@ -31,8 +31,17 @@
     <div class="tournament-content">
       <h3>{{tournamentName}}</h3>
       <p>
-        Hosted by {{author}}
-        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a>{{/if}}
+        Hosted by {{author}}<br>
+        {{#if ownPost}}<a href="{{pathFor 'tournamentEdit'}}">Edit Tournament</a><br>{{/if}}
+        Start Date: 
+        {{#if this.startDate}}
+            {{formattedDate this.startDate}}
+        {{else}}
+            TBA
+        {{/if}}
+        <br>
+        Game: {{game}}<br>
+        Mode: {{mode}}<br>
       </p>
       <p>
         Format: 
