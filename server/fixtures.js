@@ -46,10 +46,13 @@ var teams = _.map(teamNames, function (teamName) {
 });
 
 if (Tournaments.find().count() === 0) {
+    var d = new Date();
+    d.setDate(d.getDate + 5);
 	Tournaments.insert({
 		tournamentName: 'Tournament 1',
         game: 'League of Legends',
         mode: '5v5 Summoner\'s Rift',
+        startDate: d,
 		userId: users[0]._id,
 		author: users[0].username,
 	 	submitted: new Date(),
