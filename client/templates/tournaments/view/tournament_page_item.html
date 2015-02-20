@@ -6,13 +6,9 @@
     </tr>
     {{#each value.matches}}
     <tr>
-      <td>
-      {{getTeamName this.team0}}
-      </td>
+      <td>{{getTeamName this.team0 "TBD"}}</td>
       <td>vs.</td>
-      <td>
-      {{getTeamName this.team1}}
-      </td>
+      <td>{{getTeamName this.team1 "TBD"}}</td>
       <td>
       {{#if result}}
         {{result}}

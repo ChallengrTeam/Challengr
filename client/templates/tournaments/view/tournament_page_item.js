@@ -17,9 +17,9 @@ Template.tournamentBracket.helpers({
   bracketRounds: function() {
     return this.rounds || [];
   },
-  getTeamName: function (teamId) {
+  getTeamName: function (teamId, defaultString) {
     var team = Teams.findOne({_id: teamId});
-    return team ? team.teamName : "TBD";
+    return team ? team.teamName : defaultString;
   }
 });
 

@@ -1,5 +1,7 @@
 <template name="tournamentTeamItem">
   <div>
-    {{team.teamName}}
+    {{#with team}}
+        <a href="{{pathFor 'teamPage'}}">[{{teamTag}}] {{teamName}}</a>
+    {{/with}}
   </div>
 </template>
