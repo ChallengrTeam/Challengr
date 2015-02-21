@@ -89,7 +89,7 @@ Template.tournamentEdit.events({
 
 			  Router.go('tournamentPage', {_id: result._id});
 	 		});
-	 	} 
+	 	}
 	},
 
 
@@ -101,7 +101,7 @@ Template.tournamentEdit.events({
 		  // display the error to the user and abort
 		  if (error)
 		  	return alert(error.reason);
-		  
+
 		  Router.go('tournamentPage', {_id: result._id});
 	 		});
 	 	}

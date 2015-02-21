@@ -1,0 +1,9 @@
+<template name="tournamentEditTeam">
+    <div class="team-row">
+    {{#with team}}
+        <a href="{{pathFor 'teamPage'}}">[{{teamTag}}] {{teamName}}</a>
+        <button type="button" class="btn btn-default btn-sm remove" value={{teamName}}>Remove from tournament</button>
+    {{/with}}
+    </div>
+    <br>
+</template>

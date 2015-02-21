@@ -1,6 +1,14 @@
 <template name="tournamentEdit">
-  <form class="main form">
 
+    <style type="text/css">
+        .team-row {
+            max-width: 500px;
+        }
+    </style>
+
+  <h2>Edit Tournament</h2>
+
+  <form class="main form">
     <!-- Tournament Name, Game, Mode -->
     <div class="form-group">
       <label class="control-label" for="tournamentName">Tournament Name</label>
@@ -41,6 +49,16 @@
     </select>
     <a class="btn btn-default bracket-create" href="#">Save Format/Create Brackets</a>
     <a class="btn btn-default bracket-clear" href="#">Clear Current Bracket</a>
+
+    <hr/>
+
+    <!-- Tournament Teams -->
+    <div class="container-fluid">
+        <h3>Teams</h3>
+        {{#each teams}}
+            {{> tournamentEditTeam}}
+        {{/each}}
+    </div>
 
     <hr/>
 

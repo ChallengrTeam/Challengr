@@ -8,9 +8,11 @@
 	  {{/each}}
       <p>
         submitted by {{author}}
-        {{#if ownPost}}<a href="{{pathFor 'teamEdit'}}">Edit</a>{{/if}}
-        {{#if ownPost}}<a href="{{pathFor 'teamPendingList'}}">View Applications</a>{{/if}}
-        {{#if ownPost}}<a href="{{pathFor 'teamInvitePage'}}">Invite</a>{{/if}}
+        {{#if ownPost}}
+            <a href="{{pathFor 'teamEdit'}}">Edit</a>
+            <a href="{{pathFor 'teamPendingList'}}">View Applications</a>
+            <a href="{{pathFor 'teamInvitePage'}}">Invite</a>
+        {{/if}}
       </p>	
     </div>
     {{#if currentUser}}
