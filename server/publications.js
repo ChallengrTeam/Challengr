@@ -18,6 +18,10 @@ Meteor.publish('invites', function() {
   return Invites.find();
 });
 
+Meteor.publish('matches', function() {
+    return Matches.find();
+});
+
 Meteor.publish("allUserData", function () {
     return Meteor.users.find({},
                              {fields: {'username': 1, 'profile': 1}});
