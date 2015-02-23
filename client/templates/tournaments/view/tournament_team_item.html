@@ -1,5 +1,9 @@
 <template name="tournamentTeamItem">
-    {{#with team}}
-        <a href="{{pathFor 'teamPage'}}">[{{teamTag}}] {{teamName}}</a>
-    {{/with}}
+    {{#if teamId}}
+        {{#with team}}
+            <a href="{{pathFor 'teamPage'}}">[{{teamTag}}] {{teamName}}</a>
+        {{/with}}
+    {{else}}
+        TBD
+    {{/if}}
 </template>

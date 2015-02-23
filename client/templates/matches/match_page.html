@@ -1,9 +1,10 @@
 <template name="matchPage">
     <div class="match">
-        <h3>{{getGame}}: {{getTeamNameTagFormatted this.teamId0 "TBA"}} vs. {{getTeamNameTagFormatted this.teamId1 "TBA"}}</h3>
+        <h3>{{getName}}: {{getTeamNameTagFormatted this.teamId0 "TBA"}} vs. {{getTeamNameTagFormatted this.teamId1 "TBA"}}</h3>
         <p>
         {{#with getTournament tournamentId}}
             Tournament: <a href="{{pathFor 'tournamentPage'}}">{{tournamentName}}</a><br>
+            Game: {{game}}<br>
             Mode: {{mode}}<br>
         {{/with}}
         </p>
