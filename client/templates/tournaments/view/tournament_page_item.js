@@ -19,5 +19,9 @@ Template.tournamentBracket.helpers({
     },
     getMatch: function (matchId) {
         return Matches.findOne({_id: matchId});
+    },
+    getMatchResult: function() {
+        return this.result0 === null || this.result1 === null ?
+            "0:0" : this.result0 + ":" + this.result1;
     }
 });

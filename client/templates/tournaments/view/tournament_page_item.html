@@ -12,13 +12,7 @@
           {{getTeamName this.teamId0 "TBD"}} vs. {{getTeamName this.teamId1 "TBD"}}
         </a>
       </td>
-      <td>
-      {{#if result}}
-        {{result}}
-      {{else}}
-        0:0
-      {{/if}}
-      </td>
+      <td>{{getMatchResult}}</td>
     </tr>
     {{/with}}
     {{/each}}
