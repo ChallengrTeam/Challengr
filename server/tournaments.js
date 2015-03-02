@@ -27,19 +27,9 @@ Meteor.methods({
                     if (tournamentTeams.length > 1) {
                         var team0 = Teams.findOne({_id: (tournamentTeams.shift()).teamId});
                         var team1 = Teams.findOne({_id: (tournamentTeams.pop()).teamId});
-                        newMatch = Matches.insert({
-                                tournamentId: tournamentId,
-                                teamId0: team0._id,
-                                teamId1: team1._id,
-                                result: null
-                        });
+                        newMatch = Meteor.call('matchInsert', tournamentId, team0._id, team1._id);
                     } else {
-                        newMatch = Matches.insert({
-                                tournamentId: tournamentId,
-                                teamId0: null,
-                                teamId1: null,
-                                result: null
-                        });
+                        newMatch = Meteor.call('matchInsert', tournamentId, null, null);
                     }
                     matches.push(newMatch);
                 }

@@ -15,11 +15,25 @@
         </p>
 
         <p>
-        Result: {{#if result}}
-            {{result}}
-        {{else}}
-            Not Played
-        {{/if}}
+        State: {{this.state}}<br>
+        Result: {{getMatchResult}}
         </p>
+
+        <!-- Match Result Submission -->
+        <hr>
+        <form>
+            <div>
+                <label>Results</label><br>
+                {{#if userCanSubmit}}
+                    <label class="control-label" for="matchResult0">{{getTeamName teamId0}}:</label>
+                    <input name="matchResult" id="matchResult0" type="text" placeholder="Score" class="form-control"/>
+                    <label class="control-label" for="matchResult1">{{getTeamName teamId1}}:</label>
+                    <input name="matchResult" id="matchResult1" type="text" placeholder="Score" class="form-control"/>
+                    <br><input type="submit" value="Submit Match Results" class="btn btn-primary"/>
+                {{else}}
+                    <p>{{textCannotSubmit}}</p>
+                {{/if}}
+            </div>
+        </form>
     </div>
 </template>
