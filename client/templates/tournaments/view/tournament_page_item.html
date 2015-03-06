@@ -4,20 +4,18 @@
     <tr>
       <th colspan="4">Round {{index}}</th>
     </tr>
-    {{#each value.matches}}
+    {{#each value.matchIds}}
+    {{#with getMatch this}}
     <tr>
-      <td>{{getTeamName this.team0 "TBD"}}</td>
-      <td>vs.</td>
-      <td>{{getTeamName this.team1 "TBD"}}</td>
       <td>
-      {{#if result}}
-        {{result}}
-      {{else}}
-        0:0
-      {{/if}}
+        <a href="{{pathFor 'matchPage'}}">
+          {{getTeamName this.teamId0 "TBD"}} vs. {{getTeamName this.teamId1 "TBD"}}
+        </a>
       </td>
-     </tr>
-     {{/each}}
+      <td>{{getMatchResult}}</td>
+    </tr>
+    {{/with}}
+    {{/each}}
   </table>
   {{/each}}
 </template>
@@ -50,7 +48,9 @@
 
       <h4>Tournament Teams</h4>
       {{#each tournamentTeams}}
+          <div>
      	  {{>tournamentTeamItem teamId=this.teamId}}
+          </div>
       {{/each}}
 
       <h4>Brackets</h4>

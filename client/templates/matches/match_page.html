@@ -1,0 +1,39 @@
+<template name="matchPage">
+    <div class="match">
+        <h3>{{getName}}: {{getTeamNameTagFormatted this.teamId0 "TBA"}} vs. {{getTeamNameTagFormatted this.teamId1 "TBA"}}</h3>
+        <p>
+        {{#with getTournament tournamentId}}
+            Tournament: <a href="{{pathFor 'tournamentPage'}}">{{tournamentName}}</a><br>
+            Game: {{game}}<br>
+            Mode: {{mode}}<br>
+        {{/with}}
+        </p>
+
+        <p>
+        Team 1: {{> tournamentTeamItem teamId=teamId0}}<br>
+        Team 2: {{> tournamentTeamItem teamId=teamId1}}<br>
+        </p>
+
+        <p>
+        State: {{this.state}}<br>
+        Result: {{getMatchResult}}
+        </p>
+
+        <!-- Match Result Submission -->
+        <hr>
+        <form>
+            <div>
+                <label>Results</label><br>
+                {{#if userCanSubmit}}
+                    <label class="control-label" for="matchResult0">{{getTeamName teamId0}}:</label>
+                    <input name="matchResult" id="matchResult0" type="text" placeholder="Score" class="form-control"/>
+                    <label class="control-label" for="matchResult1">{{getTeamName teamId1}}:</label>
+                    <input name="matchResult" id="matchResult1" type="text" placeholder="Score" class="form-control"/>
+                    <br><input type="submit" value="Submit Match Results" class="btn btn-primary"/>
+                {{else}}
+                    <p>{{textCannotSubmit}}</p>
+                {{/if}}
+            </div>
+        </form>
+    </div>
+</template>

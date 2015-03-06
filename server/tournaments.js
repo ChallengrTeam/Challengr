@@ -23,24 +23,18 @@ Meteor.methods({
             while (roundMatches >= 1) {
                 var matches = [];
                 for (var i = 0; i < roundMatches; i++) {
+                    var newMatch = null;
                     if (tournamentTeams.length > 1) {
                         var team0 = Teams.findOne({_id: (tournamentTeams.shift()).teamId});
                         var team1 = Teams.findOne({_id: (tournamentTeams.pop()).teamId});
-                        matches.push({
-                            team0: team0._id,
-                            team1: team1._id,
-                            result: null
-                        });
+                        newMatch = Meteor.call('matchInsert', tournamentId, team0._id, team1._id);
                     } else {
-                        matches.push({
-                            team0: null,
-                            team1: null,
-                            result: null
-                        });
+                        newMatch = Meteor.call('matchInsert', tournamentId, null, null);
                     }
+                    matches.push(newMatch);
                 }
-                rounds.push({matches: matches});
-                roundMatches = roundMatches / 2;
+                rounds.push({matchIds: matches});
+                roundMatches = roundMatches / 2; // next round has half number of matches
             }
 
             Tournaments.update(tournamentId, {
@@ -54,6 +48,7 @@ Meteor.methods({
     tournamentClearBracket: function(tournamentId) {
         var tournament = Tournaments.findOne({_id: tournamentId});
         Tournaments.update(tournamentId, {$unset: {rounds: null}});
+        Matches.remove({tournamentId: tournamentId});
         return {_id: tournamentId};
     }
 });
