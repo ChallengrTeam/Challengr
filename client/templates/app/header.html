@@ -9,13 +9,13 @@
   	    <span class="icon-bar"></span>
   	    <span class="icon-bar"></span>
   	    </button>
-        <a class="navbar-brand">Challengr</a>
+        <a class="navbar-brand" href="{{pathFor 'home'}}">Challengr</a>
       </div>
       <div>
     	  <ul class="nav navbar-nav">
           {{#if currentUser}}
             <li><a href="{{pathFor 'userInvitePage'}}">My Invites</a></li>
-            <li><a href="{{pathFor 'teamsCaptainList'}}">My Teams</a></li>
+            <li><a href="{{pathFor 'userCaptainList'}}">My Teams</a></li>
             <li><a href="{{pathFor 'teamsList'}}">List Teams</a></li>
             <li><a href="{{pathFor 'teamCreate'}}">Create Team</a></li>
             <li><a href="{{pathFor 'tournamentsList'}}">List Tournaments</a></li>
