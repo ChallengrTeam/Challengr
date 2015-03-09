@@ -1,6 +1,52 @@
+<template name = "matchPageEdit">
+    <div class="matchEdit">
+        <h4>Tournament Admin Controls: Edit Match</h4>
+        <div class="form-group">
+            <form id="matchEditForm">
+                <label class="control-label" for="matchStateSelect">Set Match State:</label>
+                <select id="matchStateSelect">
+                    <option value="Incomplete" selected="{{isState 'Incomplete'}}">Incomplete (Not Ready)</option>
+                    <option value="Ready" selected="{{isState 'Ready'}}">Ready To Play</option>
+                    <option value="Finished" selected="{{isState 'Finished'}}">Finished</option>
+                </select>
+                <br>
+
+                <label class="control-label" for="teamSelect0">Set Team 1:</label>
+                <select id="teamSelect0">
+                    {{#each tournTeams "0"}}
+                        <option value="{{teamId}}" selected="{{selected}}">{{teamName}}</option>
+                    {{/each}}
+                </select>
+
+                <label class="control-label" for="teamSelect1">Set Team 2:</label>
+                <select id="teamSelect1">
+                    {{#each tournTeams "1"}}
+                        <option value="{{teamId}}" selected="{{selected}}">{{teamName}}</option>
+                    {{/each}}
+                </select>
+
+                <br>
+                <label class="control-label" for="matchEditResult0">Set Team 1 Score:</label>
+                <input id="matchEditResult0" type="text" placeholder="Score" class="form-control" value="{{this.result0}}"/>
+                <br>
+                <label class="control-label" for="matchEditResult1">Set Team 2 Score:</label>
+                <input id="matchEditResult1" type="text" placeholder="Score" class="form-control" value="{{this.result1}}"/>
+
+                <br><input type="submit" value="Save Changes" class="btn btn-primary"/>
+            </form>
+        </div>
+    </div>
+</template>
+
 <template name="matchPage">
     <div class="match">
         <h3>{{getName}}: {{getTeamNameTagFormatted this.teamId0 "TBA"}} vs. {{getTeamNameTagFormatted this.teamId1 "TBA"}}</h3>
+
+        {{#if userCanEditMatch}}
+            <hr>{{> matchPageEdit}}<hr>
+        {{/if}}
+
+        <!-- Match Details -->
         <p>
         {{#with getTournament tournamentId}}
             Tournament: <a href="{{pathFor 'tournamentPage'}}">{{tournamentName}}</a><br>
@@ -21,14 +67,14 @@
 
         <!-- Match Result Submission -->
         <hr>
-        <form>
+        <form id="matchResultForm">
             <div>
                 <label>Results</label><br>
                 {{#if userCanSubmit}}
                     <label class="control-label" for="matchResult0">{{getTeamName teamId0}}:</label>
-                    <input name="matchResult" id="matchResult0" type="text" placeholder="Score" class="form-control"/>
+                    <input id="matchResult0" type="text" placeholder="Score" class="form-control"/>
                     <label class="control-label" for="matchResult1">{{getTeamName teamId1}}:</label>
-                    <input name="matchResult" id="matchResult1" type="text" placeholder="Score" class="form-control"/>
+                    <input id="matchResult1" type="text" placeholder="Score" class="form-control"/>
                     <br><input type="submit" value="Submit Match Results" class="btn btn-primary"/>
                 {{else}}
                     <p>{{textCannotSubmit}}</p>

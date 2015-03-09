@@ -37,12 +37,36 @@ Template.matchPage.helpers({
             var isInMatch = teamContainsUser(this.teamId0, userId) ||teamContainsUser(this.teamId1, userId);
             return isInMatch;
         } else return false;
+    },
+
+    userCanEditMatch: function() {
+        var tourn = Tournaments.findOne({_id: this.tournamentId});
+        return tourn.userId === Meteor.userId();
+    }
+});
+
+Template.matchPageEdit.helpers({
+    isState: function(state) { return state == this.state ? "true" : null; },
+
+    tournTeams: function(teamNum) {
+        var teams = Tournaments.findOne({_id: this.tournamentId}).teams;
+
+        var selectedTeamId = "0";
+        if (teamNum == "0") selectedTeamId = this.teamId0;
+        if (teamNum == "1") selectedTeamId = this.teamId1;
+        var isSelected = function(teamId) { return teamId === selectedTeamId; };
+
+        return _.map(teams, function(tournTeam) {
+            var team = Teams.findOne({_id: tournTeam.teamId});
+            var attr = {teamId: team._id, teamName: team.teamName};
+            if (isSelected(team._id)) attr.selected = true;
+            return attr;
+        });
     }
 });
 
 Template.matchPage.events({
-
-    'submit form': function (event, template) {
+    'submit #matchResultForm': function (event, template) {
         event.preventDefault();
         var result0 = $('#matchResult0').val();
         var result1 = $('#matchResult1').val();
@@ -56,5 +80,26 @@ Template.matchPage.events({
                 });
         }
     }
+});
 
+Template.matchPageEdit.events({
+    'submit #matchEditForm': function(event, template) {
+        event.preventDefault();
+        var t = event.target;
+        var confirmMsg = "Editing match to:\n";
+        confirmMsg += "State: " + t.matchStateSelect.options[t.matchStateSelect.selectedIndex].text +
+            "\nTeam 1: " + t.teamSelect0.options[t.teamSelect0.selectedIndex].text +
+            "\nTeam 2: " + t.teamSelect1.options[t.teamSelect1.selectedIndex].text +
+            "\nResult: " + t.matchEditResult0.value + ":" + t.matchEditResult1.value +
+            "\nAre you sure you want to edit the match?";
+        if (confirm(confirmMsg)) {
+            Matches.update(this._id, {$set: {
+                teamId0: t.teamSelect0.value,
+                teamId1: t.teamSelect1.value,
+                result0: t.matchEditResult0.value,
+                result1: t.matchEditResult1.value,
+                state: t.matchStateSelect.value,
+            }});
+        }
+    }
 });
